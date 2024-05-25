@@ -44,34 +44,6 @@ Conclusão do Labirinto: Quando o jogador alcança a saída do labirinto, uma me
 
 
 
-## Conclusão:
-
-A implementação de um jogo de labirinto em JS envolve a geração aleatória do labirinto, a interação com o jogador e a conclusão do desafio. Utilizando um algoritmo de busca em profundidade para a geração do labirinto, conseguimos criar um jogo que oferece um desafio divertido e interessante para o jogador. Este relatório fornece uma visão geral da lógica por trás da implementação e analisa a complexidade do algoritmo utilizado.
-DFS significa Depth-First Search, que é um algoritmo de busca em grafos. Ele é utilizado para percorrer ou pesquisar em uma estrutura de dados de grafo (ou árvore), visitando todos os vértices de forma sistemática, começando por um vértice inicial e explorando o máximo possível ao longo de cada ramificação antes de retroceder.
-Na geração de labirintos, como utilizamos no jogo em questão, o algoritmo DFS é utilizado para criar o caminho do labirinto de forma aleatória. Essa é uma visão geral de como funciona o DFS na geração de labirintos:
-
-1. Começa-se por um vértice inicial aleatório.
-Escolha um ponto inicial aleatório no labirinto. Este será o ponto de partida para a geração do labirinto.
-
-2. Marque o ponto inicial como visitado. Isso é feito para garantir que não voltemos a visitá-lo durante o processo.
-
-3. Adicione o ponto inicial à pilha de execução. Isso nos permitirá rastrear o caminho percorrido até o momento.
-
-4. Enquanto houver células na pilha de execução:
-
- * Selecione uma célula vizinha não visitada aleatoriamente. Isso nos permite escolher uma direção aleatória para expandir o labirinto.
- * Remova a parede entre a célula atual e a célula selecionada. Isso cria um caminho no labirinto.
- * Marque a célula selecionada como visitada e adicione-a à pilha. Isso permite continuar a expandir o labirinto a partir desta célula.
-
-5. Quando não houver mais células vizinhas não visitadas:
-
- * Retroceda na pilha de execução. Isso nos permite voltar para a última célula onde havia vizinhos não visitados e continuar a partir dela.
-
-6. Repita o processo até que todas as células tenham sido visitadas.
-
-O DFS é eficiente para a geração de labirintos porque é capaz de explorar profundamente uma determinada direção antes de voltar para explorar outras direções. Isso leva à criação de caminhos longos e ramificações no labirinto, resultando em um labirinto complexo e interessante para o jogador explorar
-
-
 ## Pré-requisitos
 - Navegador moderno com suporte a JavaScript
 - Canvas API
@@ -112,3 +84,31 @@ O DFS é eficiente para a geração de labirintos porque é capaz de explorar pr
 
 ## Controles
 - Use as setas do teclado (`ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`) para mover a bolinha vermelha pelo labirinto.
+
+
+## Conclusão:
+
+A implementação de um jogo de labirinto em JS envolve a geração aleatória do labirinto, a interação com o jogador e a conclusão do desafio. Utilizando um algoritmo de busca em profundidade para a geração do labirinto, conseguimos criar um jogo que oferece um desafio divertido e interessante para o jogador. Este relatório fornece uma visão geral da lógica por trás da implementação e analisa a complexidade do algoritmo utilizado.
+DFS significa Depth-First Search, que é um algoritmo de busca em grafos. Ele é utilizado para percorrer ou pesquisar em uma estrutura de dados de grafo (ou árvore), visitando todos os vértices de forma sistemática, começando por um vértice inicial e explorando o máximo possível ao longo de cada ramificação antes de retroceder.
+Na geração de labirintos, como utilizamos no jogo em questão, o algoritmo DFS é utilizado para criar o caminho do labirinto de forma aleatória. Essa é uma visão geral de como funciona o DFS na geração de labirintos:
+
+1. Começa-se por um vértice inicial aleatório.
+Escolha um ponto inicial aleatório no labirinto. Este será o ponto de partida para a geração do labirinto.
+
+2. Marque o ponto inicial como visitado. Isso é feito para garantir que não voltemos a visitá-lo durante o processo.
+
+3. Adicione o ponto inicial à pilha de execução. Isso nos permitirá rastrear o caminho percorrido até o momento.
+
+4. Enquanto houver células na pilha de execução:
+
+ * Selecione uma célula vizinha não visitada aleatoriamente. Isso nos permite escolher uma direção aleatória para expandir o labirinto.
+ * Remova a parede entre a célula atual e a célula selecionada. Isso cria um caminho no labirinto.
+ * Marque a célula selecionada como visitada e adicione-a à pilha. Isso permite continuar a expandir o labirinto a partir desta célula.
+
+5. Quando não houver mais células vizinhas não visitadas:
+
+ * Retroceda na pilha de execução. Isso nos permite voltar para a última célula onde havia vizinhos não visitados e continuar a partir dela.
+
+6. Repita o processo até que todas as células tenham sido visitadas.
+
+O DFS é eficiente para a geração de labirintos porque é capaz de explorar profundamente uma determinada direção antes de voltar para explorar outras direções. Isso leva à criação de caminhos longos e ramificações no labirinto, resultando em um labirinto complexo e interessante para o jogador explorar
