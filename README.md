@@ -70,3 +70,45 @@ Escolha um ponto inicial aleatório no labirinto. Este será o ponto de partida 
 6. Repita o processo até que todas as células tenham sido visitadas.
 
 O DFS é eficiente para a geração de labirintos porque é capaz de explorar profundamente uma determinada direção antes de voltar para explorar outras direções. Isso leva à criação de caminhos longos e ramificações no labirinto, resultando em um labirinto complexo e interessante para o jogador explorar
+
+
+## Pré-requisitos
+- Navegador moderno com suporte a JavaScript
+- Canvas API
+
+## Como Executar
+1. Clone o repositório ou faça o download dos arquivos.
+2. Abra o arquivo `index.html` no seu navegador.
+
+## Estrutura do Código
+### Constantes e Variáveis Globais
+- `WIDTH` e `HEIGHT`: Definem o tamanho da janela do jogo.
+- `ROWS` e `COLS`: Definem o tamanho do labirinto em termos de número de células.
+- `CELL_WIDTH` e `CELL_HEIGHT`: Calculam o tamanho de cada célula.
+- Cores para o jogo (`WHITE` e `RED`).
+
+### Classes
+- `Cell`: Representa uma célula do labirinto com suas propriedades (posição, se foi visitada, e quais paredes estão presentes).
+
+### Funções
+#### Cronômetro
+- `startTimer`: Inicia o cronômetro do jogo.
+- `pauseTimer`: Pausa o cronômetro.
+- `updateTimer`: Atualiza o cronômetro exibido na tela.
+- `padTime`: Adiciona um zero à esquerda do tempo, se necessário.
+
+#### Maze Generation
+- `generateMaze(cells)`: Gera o labirinto utilizando o algoritmo de busca em profundidade.
+- `getNeighbors(cell, cells)`: Obtém os vizinhos de uma célula.
+- `removeWall(cell1, cell2)`: Remove a parede entre duas células adjacentes.
+
+#### Drawing Functions
+- `drawMaze(cells)`: Desenha o labirinto no canvas.
+- `drawBall(x, y)`: Desenha a bolinha vermelha.
+- `drawFinish()`: Desenha a bolinha branca no final do labirinto.
+
+### Função Principal
+- `main()`: Função principal que inicializa o jogo, gera o labirinto, e configura o loop do jogo e os event listeners para capturar as teclas pressionadas.
+
+## Controles
+- Use as setas do teclado (`ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`) para mover a bolinha vermelha pelo labirinto.
