@@ -2,6 +2,9 @@
 Projeto de estrutura de dados - Labirinto em JavaScript
 
 
+![Logo da Empresa](imagens/lab.png)
+
+
 ## 1. Descrição do Problema:
 
 O problema consiste em criar um jogo de labirinto onde o jogador precisa encontrar a saída através de um caminho complexo e cheio de obstáculos. O labirinto é representado por uma matriz bidimensional, onde cada célula pode ser um caminho livre, uma parede ou a saída.
