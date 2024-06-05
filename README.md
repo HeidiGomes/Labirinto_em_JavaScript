@@ -2,6 +2,17 @@
 Projeto de estrutura de dados - Labirinto em JavaScript
 
 
+## Integrantes
+
+| Nome                                   | RA         |
+|----------------------------------------|------------|
+| Heidielton Carmo de Brito              | 1272022645 |
+| Paulo Sérgio Moraes de Oliveira Filho  | 1272022847 |
+| Gabriel Alexandria Santana             | 21272018696|
+| MATHEUS ALCÂNTARA MARTINS              |1272018579  |
+
+
+
 ![Logo da Empresa](imagens/lab.png)
 
 
