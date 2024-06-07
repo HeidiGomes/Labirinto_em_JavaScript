@@ -32,6 +32,76 @@ Movimento do Jogador: O jogador pode controlar um personagem dentro do labirinto
 
 Conclusão do Labirinto: Quando o jogador alcança a saída do labirinto, uma mensagem é exibida parabenizando-o por concluir o desafio.
 
+## Uso de estrutura de dados no projeto
+Neste projeto, foram usadas diversas estruturas de dados para organizar e manipular as informações necessárias para a geração e visualização do labirinto, bem como para a interação do usuário com o jogo. vou citar alguma delas abaixo:
+
+- Array bidimensional (Matriz)
+A matriz cells é uma estrutura de dados central no projeto. Ela é utilizada para armazenar todas as células do labirinto, organizadas em linhas `(ROWS)` e colunas `(COLS)`.
+
+`const cells = Array.from({ length: ROWS }, (_, i) => Array.from({ length: COLS }, (_, j) => new Cell(i, j)));`
+
+Cada elemento desta matriz é uma instância da classe Cell, que representa uma célula do labirinto.
+
+- Classe `cell`
+A classe Cell é uma estrutura de dados que define as propriedades e o comportamento de cada célula no labirinto. Ela possui as seguintes propriedades:
+
+`row` e `col`: Coordenadas da célula na matriz.
+`visited`: Um booleano que indica se a célula já foi visitada durante a geração do labirinto.
+`walls`: Um objeto que armazena o estado das paredes da célula (topo, direita, baixo e esquerda).
+
+`class Cell {
+    constructor(row, col) {
+        this.row = row;
+        this.col = col;
+        this.visited = false;
+        this.walls = { top: true, right: true, bottom: true, left: true };
+    }
+} `
+
+- Pilha (Stack)
+A pilha é utilizada no algoritmo de geração do labirinto (algoritmo de busca em profundidade). Ela armazena as células que ainda precisam ser processadas. A pilha permite que o algoritmo sempre processe a célula mais recentemente adicionada, o que é uma característica fundamental do comportamento de busca em profundidade.
+
+`const stack = [start]; `
+Durante o processo de geração do labirinto, células são adicionadas (push) e removidas (pop) da pilha.
+
+- Intervalos e timers
+  `setInterval`: Utilizado para criar o loop principal do jogo, que atualiza a tela 60 vezes por segundo.
+  `setInterval` e `clearInterval`: Usados para controlar o cronômetro do jogo, que é atualizado a cada segundo.
+
+`setInterval(gameLoop, 1000 / 60);
+timerInterval = setInterval(function printTime() {
+    elapsedTime = Date.now() - startTime;
+    updateTimer();
+}, 1000);`
+
+- Eventos Listeners
+  Os listeners de eventos (addEventListener) são utilizados para capturar as teclas pressionadas pelo usuário e atualizar a posição da bolinha vermelha no labirinto.
+  ` document.addEventListener("keydown", event => {
+    switch (event.key) {
+        case "ArrowUp":
+            if (ballY > 0 && !cells[ballY][ballX].walls.top)
+                ballY--;
+            break;
+        case "ArrowDown":
+            if (ballY < ROWS - 1 && !cells[ballY][ballX].walls.bottom)
+                ballY++;
+            break;
+        case "ArrowLeft":
+            if (ballX > 0 && !cells[ballY][ballX].walls.left)
+                ballX--;
+            break;
+        case "ArrowRight":
+            if (ballX < COLS - 1 && !cells[ballY][ballX].walls.right)
+                ballX++;
+            break;
+        default:
+            break;
+    }
+});`
+
+- Objetos para representar cores
+  Embora simples, as constantes que representam as cores (`WHITE` e `RED`) são exemplos de uso de objetos para armazenar valores que são utilizados várias vezes ao longo do código.
+
 ## 3. Análise de Complexidade:
 
 **Complexidade de Tempo:** O algoritmo de busca em profundidade tem uma complexidade de tempo de O(V + E), onde V é o número de vértices (células) e E é o número de arestas (paredes). **No contexto do labirinto**, considerando que cada célula é um vértice e cada parede é uma aresta, a complexidade de tempo é linear em relação ao número total de células e paredes.
